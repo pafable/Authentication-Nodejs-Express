@@ -23,12 +23,23 @@ app.use(passport.session());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+//====================================
+//  ROUTES
+//====================================
+
 app.get("/", function(req,res){
     res.render("home");
 });
 
 app.get("/secret", function(req,res){
     res.render("secret");
+});
+
+//====================================
+//  Auth Routes
+//Show sign up form
+app.get("/register", function(req,res){
+    res.render("register");
 });
 
 app.listen(80, process.env.IP, function(){
